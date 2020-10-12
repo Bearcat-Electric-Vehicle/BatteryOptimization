@@ -1,15 +1,16 @@
-#file: -- pack.py --
-
-import src.cell
-
+#file --pack.py--
 FLAGS_ENABLED = 1
+
+
+from cell import cell
+import math
 
 class pack(object):
 
     cellsInParallel = 0
     cellsInSeries = 0
     energyRequired = 0
-    packEnergyList = energyList
+    packEnergyList = [[8650,.00833],[5970,.5], [7040, .5], [3830,.00833]]
     voltageRequired = 0
     powerRequired = 0
     additionalCapacity = 30
@@ -17,7 +18,22 @@ class pack(object):
     weightInKilograms = 0
     currentCell = cell('empty',-1,-1,-1,-1,-1,-1,200000)
     #cell(name,ratedvoltage,capacity, peakContinousCurrent,startingVoltage,endingVoltage,resistance,weight)
-
+    cellList = [cell('Polymer Li-Ion 1055275',3.7,18000,42,3.7,2.7,.015,406.9),
+     cell('Polymer Lithium-ion 9759156-10C cell',3.7,10000,100,3.7,2.75,.005,210),
+     cell('LMP063767',3.8,3400,6.8,3.8,3,.018,29),
+     cell('SLPB065070180',3.7,12000,24,3.7,2.7,.00204,1750),
+     #cell('Licerion[experemental]',5,20000,60,5,4,.0018, 154),
+     cell('UHP341440 NCA', 3.6,7500,150,3.6,2.7,.00065,320),
+     #cell('553562-10C',3.7,1050,10,3.7,2.7,.04,18)
+     cell('Venom Industrial LCO 22Ah',3.7,22000,330,3.7,3,.0002,415),
+     cell('Venom Industrial LCO 16Ah',3.7,16000,240,3.7,3,.0002,300),
+     cell('Venom Industrial LC0 13 Ah',3.7,13000,195,3.7,3,.0002,248),
+     cell('Venom Industrial LCO 8 Ah', 3.7, 8000, 120, 3.7, 3, .0002, 167),
+     cell('Venom Industrial LCO 37 Ah', 3.65, 37000, 120, 3.7, 3, .0003, 863),
+     cell('SLPB98188216P', 3.7, 30000, 600, 3.7, 3, .0007, 780),
+     cell('SLPB60216216', 3.7, 25000, 200, 3.7, 3, .0012, 555),
+     cell('SLPB065070180', 3.7, 11600, 23.2, 3.7, 3, .0028, 175),
+     cell('SLC-202', 3.7, 1750, 3.5, 3.7, 3, .001, 29)]
      #cell('553562-10C', 3.7, 1050, 10.5 ,3.7, 3, .001, 18),
      #cell('703562-10C', 3.7, 1150, 14, 3.7, 3, .001, 28)] #Cell options Licerion cell is experemental
     
@@ -307,7 +323,7 @@ class pack(object):
         optimalCell = cell('empty',-1,-1,-1,-1,-1,-1,200000)
         previousWeight = 200000
         self.setWeightInKilograms(0)
-
+        DISPLAY_OPTIMAL_ONLY = 0
         for potentialCell in self.cellList:
             self.currentCell = potentialCell
             self.findDimensions(self.currentCell)

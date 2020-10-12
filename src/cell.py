@@ -1,19 +1,14 @@
-# -- cell.py --
-
-FLAGS_ENABLED = 1
+#file --cell.py--
 
 class cell(object):
-
-    #new cell
-    cellName = 'empty'
-    intitialPotential = -1
-    finalPotential = -1
-    ratedPotential = -1
+    name = "empty"
+    initialVoltage = -1
+    finalVoltage = -1
+    ratedVoltage = -1
     capacity = -1
-    maxDischarge = -1
+    maxContinousDischarge = -1
     internalResistance = -1
-    remainingCapacity = -1 
-    weight = -1
+    remainingCapacity = -1 #TODO: Rename this
     usableCapacity = -1
 
     def __init__(self,cellName,ratedVoltage,capacity,peakCurrent,startingVoltage,endingVoltage,resistance,weight):
@@ -124,4 +119,4 @@ class cell(object):
         return 0
 
     def toString(self):
-        return (self.cellName + ', ' + self.ratedPotential + ', ' + self.capacity)
+        return (self.cellName + ', ' + self.ratedPotential + ', ' + self.capacity) 
