@@ -6,16 +6,16 @@ from pack import pack
 from vehicle import vehicle
 
 #Vehicle inputs:
-motorCount = 4
+motorCount = 1
 #example
 #Motor input:
-motorName = 'U7 V2.0 - KV 420'
-motorVoltage =  25
-motorMaxCurrent = 47.5
+motorName = 'Emrax 228 MV'
+motorVoltage =  300
+motorMaxCurrent = 266.6
 
 #Energy input:
 #Format [power(Watts), duration(hours)],[power2(Watts), duration2(hours)]
-powerInterval = [[8650,.00833],[5970,.5], [7040, .5], [3830,.00833]]
+powerInterval = [[80000,.33],[64000, .067], [36400, .017]] #FIXME: This doesn't assign correctly, set it in line 13 in pack.py
 
 myPack = pack()
 myPack.setVoltageRequired(motorVoltage)

@@ -10,7 +10,7 @@ class pack(object):
     cellsInParallel = 0
     cellsInSeries = 0
     energyRequired = 0
-    packEnergyList = [[8650,.00833],[5970,.5], [7040, .5], [3830,.00833]]
+    packEnergyList = [[80000,.33],[64000, .067], [36400, .017]]
     voltageRequired = 0
     powerRequired = 0
     additionalCapacity = 30
@@ -305,13 +305,16 @@ class pack(object):
     def printPack(self):
         #print (f'Pack energy(KWh):')
         print('')
-        print(f'Pack voltage(V): {(self.getCellsInSeries()*self.currentCell.getVoltage())}')
+        voltage = self.getCellsInSeries()*self.currentCell.getVoltage()
+        print(f'Pack voltage(V): {voltage}')
         print (f'Pack max continuous current(A): {(self.getCellsInParallel()*self.currentCell.getMaxDischarge())}')
         print (f'Cell name: {self.currentCell.getCellName()}')
         print(f'Cells in series: {self.cellsInSeries}')
         print(f'Cells in parallel: {self.cellsInParallel}')
         print(f'Total cells: {self.getTotalCells()}')
         print(f'Total capacity(Ah): {self.getCapacity()}')
+        totalEnergy = (voltage*self.getCapacity())/1000
+        print(f'Total energy(kWh): { totalEnergy }')
         print(f'Weight(Kg): {self.getWeight()}')
         thermalLoss = self.findThermalLosses()
         print(f'Thermal loss(Wh): {thermalLoss}')
