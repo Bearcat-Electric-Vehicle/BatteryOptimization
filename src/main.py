@@ -15,7 +15,7 @@ motorMaxCurrent = 266.6
 
 #Energy input:
 #Format [power(Watts), duration(hours)],[power2(Watts), duration2(hours)]
-powerInterval = [[80000,.33],[64000, .067], [36400, .017]] #FIXME: This doesn't assign correctly, set it in line 13 in pack.py
+powerInterval = [[80000,.017],[64000, .067], [36400, .33]] #FIXME: This doesn't assign correctly, set it in line 13 in pack.py
 
 myPack = pack()
 myPack.setVoltageRequired(motorVoltage)

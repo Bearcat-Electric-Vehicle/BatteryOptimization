@@ -10,7 +10,7 @@ class pack(object):
     cellsInParallel = 0
     cellsInSeries = 0
     energyRequired = 0
-    packEnergyList = [[80000,.33],[64000, .067], [36400, .017]]
+    packEnergyList = [[80000,.017],[64000, .067], [36400, .33]]
     voltageRequired = 0
     powerRequired = 0
     additionalCapacity = 30
@@ -33,7 +33,8 @@ class pack(object):
      cell('SLPB98188216P', 3.7, 30000, 600, 3.7, 3, .0007, 780),
      cell('SLPB60216216', 3.7, 25000, 200, 3.7, 3, .0012, 555),
      cell('SLPB065070180', 3.7, 11600, 23.2, 3.7, 3, .0028, 175),
-     cell('SLC-202', 3.7, 1750, 3.5, 3.7, 3, .001, 29)]
+     cell('SLC-202', 3.7, 1750, 3.5, 3.7, 3, .001, 29),
+     ]
      #cell('553562-10C', 3.7, 1050, 10.5 ,3.7, 3, .001, 18),
      #cell('703562-10C', 3.7, 1150, 14, 3.7, 3, .001, 28)] #Cell options Licerion cell is experemental
     
